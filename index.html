@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>Writing Room</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <!--Navbar-->
+    <nav class="z-depth-2 black">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo left show-on-small">
+          <img src="img/logo2.png" style="width: 64px; margin-top: 5px;" />
+        </a>
+        <ul id="nav-mobile" class="right show-on-small">
+          <li class="logged-in" style="display:none;">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account" style="font-size: 19px;">Account Info</a>
+          </li>
+          <li class="logged-in" style="display:none;">
+            <a href="#" class="grey-text" style="font-size: 19px;" id="logout">Log out</a>
+          </li>
+          <li class="logged-in" style="display:none;">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-create" style="font-size: 19px;">Write an Article</a>
+          </li>
+          <li class="logged-out" style="display:none;">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login" style="font-size: 19px;">Login</a>
+          </li>
+          <li class="logged-out" style="display:none;">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-signup" style="font-size: 19px;">Create Account</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!--Üyelik Oluştur Modal-->
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <h4>Create an account</h4><br />
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">E-mail Address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup-password" required />
+            <label for="signup-password">Password</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="signup-bio" required />
+            <label for="signup-bio">Personal Info</label>
+          </div>
+          <button class="btn yellow darken-2">Save</button>
+        </form>
+      </div>
+    </div>
+    <!--Login Modal-->
+    <div id="modal-login" class="modal">
+      <div class="modal-content">
+        <h4>Log in</h4><br />
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Enter Email Address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Enter Password</label>
+          </div>
+          <button class="btn yellow darken-2">OK</button>
+        </form>
+      </div>
+    </div>
+
+    <!--Hesap Modal-->
+    <div id="modal-account" class="modal">
+      <div class="modal-content center-align">
+        <h4>Account Info</h4><br />
+        <div class="account-details"></div>
+      </div>
+    </div>
+
+    <!--Makale Oluştur-->
+    <div id="modal-create" class="modal">
+      <div class="modal-content">
+        <h4>Write an Article</h4><br />
+        <form id="create-form">
+          <div class="input-field">
+            <input type="text" id="title" required />
+            <label for="title">Article Title</label>
+          </div>
+          <div class="input-field">
+            <textarea type="text" id="content" class="materialize-textarea" required></textarea>
+            <label for="content">Article Content</label>
+          </div>
+          <button class="btn yellow darken-2">OK</button>
+        </form>
+      </div>
+    </div>
+
+    <!--Başlık-->
+    <div class="content">
+      <h1>WRITING ROOM</h1>
+      <p>
+      <blockquote>“One must always be careful of books," said Tessa, "and what is inside them, for words have the power to change us.”</blockquote>
+      <cite>Cassandra Clare, Clockwork Angel</cite>
+      </p>
+    </div>
+
+    <!--Makale Listesi-->
+    <div class="container" style="color:hsl(0, 0%, 17%); margin-top:150px; font-size: 20px;">
+      <ul class="collapsible z-depth-3 guides" style="border:none;">
+
+      </ul>
+    </div>
+
+    <!--Footer-->
+    <footer>
+      <div class="footer-content">
+        <h5>we are also here</h5>
+        <p>We are such writers that who loves to read and write different kinds of articles so if you are such pearson too, then, don't forget to folow us from other social media platforms!</p>
+        <ul class="socials">
+          <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
+          <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>copyright &copy;2021 MIS301 web design. designed by <span>asli k.<span></p>
+      </div>
+      </footer>
+
+      <!--Firebase-->
+      <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyBq7AeOBY7qrdekzwcbraI3m34uauc-dAc",
+          authDomain: "auth-app-cf0ed.firebaseapp.com",
+          projectId: "auth-app-cf0ed",
+          appId: "1:900260740448:web:1a40018e70d59704a8f205",
+
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+      </script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="scripts/script.js"></script>
+      <script src="scripts/auth.js"></script>
+  </body>
+</html>
