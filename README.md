@@ -9,25 +9,28 @@
 
 #### What does my website consist of?
 - HTML5
-- Css
+- Css & Materalize
 - Js
 
 #### What did I use while creating my website?
 - Firebase
 - Materialize 
 - VS
-- And lots of effort...
 
 
 
-
-
-
-
+![wepage](https://media.giphy.com/media/PdeK2g4mdivMT1F8S8/giphy.gif) 
 
 
 
 | Name | Surname |
 |--|--|
 | Aslı | Kurt |
+
+
+
+
+
+**Just an ordinary student**
+
 
